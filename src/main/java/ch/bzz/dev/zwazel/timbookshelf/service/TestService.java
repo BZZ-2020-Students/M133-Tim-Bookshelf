@@ -11,6 +11,9 @@ public class TestService {
     @Produces("text/plain")
     @Path("test")
     public Response test() {
-        return Response.status(200).entity("test erfolgreich").build();
+        return Response
+                .status(200)
+                .entity("test erfolgreich")
+                .build();
     }
 }
