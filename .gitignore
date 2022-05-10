@@ -226,3 +226,5 @@ gradle-app.setting
 
 /.idea/codeStyles/
 src/main/resources/config.properties
+
+tim-bookshelf.iml
