@@ -1,11 +1,14 @@
 package ch.bzz.dev.zwazel.timbookshelf;
 
+import ch.bzz.dev.zwazel.timbookshelf.data.DataHandler;
+import ch.bzz.dev.zwazel.timbookshelf.model.Book;
 import jakarta.ws.rs.ApplicationPath;
 import jakarta.ws.rs.core.Application;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Properties;
 
 @ApplicationPath("/resource")
@@ -15,7 +18,7 @@ public class Config extends Application {
     private static void checkIfPropertyExists() {
         if (properties == null) {
             properties = new Properties();
-            try (InputStream input = new FileInputStream(Config.class.getClassLoader().getResource("config.properties").getFile())) {
+            try (InputStream input = new FileInputStream(Config.class.getClassLoader().getResource("bookshelf.properties").getFile())) {
                 properties.load(input);
             } catch (IOException e) {
                 e.printStackTrace();
