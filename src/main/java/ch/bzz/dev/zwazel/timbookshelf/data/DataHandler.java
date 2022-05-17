@@ -7,7 +7,6 @@ import lombok.NonNull;
 import lombok.Setter;
 
 import java.io.IOException;
-import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -34,7 +33,7 @@ public class DataHandler<T> {
         return objectMapper.readValue(jsonData, objectMapper.getTypeFactory().constructCollectionType(ArrayList.class, tClass));
     }
 
-    public <Key extends Serializable> T getSingleFromJsonArray(String propertyName, String keyName, Key key) throws IOException, NoSuchFieldException, IllegalAccessException {
+    public <Key> T getSingleFromJsonArray(String propertyName, String keyName, Key key) throws IOException, NoSuchFieldException, IllegalAccessException {
         ArrayList<T> arrayList = getArrayFromJson(propertyName);
 
         for (T t : arrayList) {
